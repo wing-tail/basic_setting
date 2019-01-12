@@ -1,0 +1,16 @@
+- name: make vim plugin directory
+  file: path=$HOME/.vim/dein/repos/github.com/Shougo/dein.vim state=directory
+- name: get vim plugin controller
+  git: repo=https://github.com/Shougo/dein.vim.git dest=$HOME/.vim/dein/repos/github.com/Shougo/dein.vim
+- name: get vim schema
+  git: repo=https://github.com/Haron-Prime/Antares.git dest=$HOME/Antares
+- name: make vim schema directory
+  file: path=$HOME/.vim/colors state=directory
+- name: set vim schema
+  copy: remote_src=true src=$HOME/Antares/colors/antares.vim dest=$HOME/.vim/colors/antares.vim
+- name: clean up
+  file: path=$HOME/Antares state=absent
+- name: remove vim setting
+  file: path=$HOME/.vimrc state=absent
+- name: link vim setting
+  file: src={{ ansible_env.PWD }}/files/.vimrc dest=$HOME/.vimrc state=link
