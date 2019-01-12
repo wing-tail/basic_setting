@@ -1,0 +1,10 @@
+- name: remove old file
+  file: path=$HOME/rustup.sh state=absent
+- name: get rust
+  get_url: url=https://sh.rustup.rs dest=$HOME/rustup.sh mode=777
+- name: install rust
+  shell: $HOME/rustup.sh -y
+- name: clean up
+  file: path=$HOME/rustup.sh state=absent
+- name: install ripgrep
+  shell: bash -c "source $HOME/.cargo/env && which rustc && cargo install --force ripgrep"
