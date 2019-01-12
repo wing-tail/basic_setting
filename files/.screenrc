@@ -1,0 +1,9 @@
+shell -$SHELL
+setenv SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce on
+altscreen on
+caption always '%?%F%{= rW}%:%{= Kk}%?%2n%f%07=%t%?%P *** copy/paste mode ***%:%?%='
+hardstatus alwayslastline '%{= kw}%02c:%s %{= .y}%H %L=%{= .b}%-w%46>%{= .r}%n %t*%{= .b}%+w%-16=%{= .y}[%l]'
+deflogin off

@@ -1,0 +1,6 @@
+- name: make screen directory
+  file: path=$HOME/.screen state=directory mode=700
+- name: remove screen setting
+  file: path=$HOME/.screenrc state=absent
+- name: link screen setting
+  file: src={{ ansible_env.PWD }}/files/.screenrc dest=$HOME/.screenrc state=link
