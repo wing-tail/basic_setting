@@ -1,0 +1,18 @@
+- name: set up editor
+  shell: git config --global core.editor vi
+- name: set up push
+  shell: git config --global push.default current
+- name: set up merge
+  shell: git config --global merge.ff false
+- name: set up pull
+  shell: git config --global pull.ff only
+- name: name prompt
+  pause: prompt="input git user_name"
+  register: user_name
+- name: set up user_name
+  shell: git config --global user.name "{{ user_name.user_input }}"
+- name: email prompt
+  pause: prompt="input git user_email"
+  register: user_email
+- name: set up user_email
+  shell: git config --global user.email "{{ user_email.user_input }}"
