@@ -1,0 +1,18 @@
+- name: apt update
+  become: true
+  shell: apt update
+- name: apt upgrade
+  become: true
+  shell: apt upgrade
+- name: software install by apt
+  become: true
+  shell: apt install -y language-pack-ja screen tig ruby ruby-dev libffi-dev python-pip
+- name: software install by pip
+  become: true
+  shell: pip install cffi
+- name: software install by gem
+  become: true
+  shell: gem install sass
+- name: cleaning
+  become: true
+  shell: apt autoremove -y
