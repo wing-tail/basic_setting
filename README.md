@@ -1,1 +1,1 @@
-# basic_setting
+# 基本設定
