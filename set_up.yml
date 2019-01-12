@@ -1,0 +1,10 @@
+- hosts: localhost
+  connection: local
+  roles:
+    - software_control
+    - base_setting
+    - ripgrep
+    - git
+    - bash
+    - vim
+    - screen
