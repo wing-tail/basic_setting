@@ -1,0 +1,8 @@
+- name: locale setting
+  become: true
+  shell: update-locale LANG=ja_JP.UTF8
+- name: timezone setting
+  shell: echo "Asia/Tokyo" | sudo tee /etc/timezone && sudo dpkg-reconfigure --frontend noninteractive tzdata
+- name: manual install
+  become: true
+  shell: apt install -y manpages-ja manpages-ja-dev
