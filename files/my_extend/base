@@ -1,0 +1,7 @@
+if [ -f ~/.bash/my_extend/aliases ]; then
+    . ~/.bash/my_extend/aliases
+fi
+
+if [ -f ~/.bash/my_extend/functions ]; then
+    . ~/.bash/my_extend/functions
+fi

@@ -1,0 +1,21 @@
+# for screen
+alias scs='screen -S'
+alias scr='screen -r'
+alias sls='screen -ls'
+
+# for git
+alias br='git branch'
+alias chb='git checkout -b'
+alias pull='git pull --no-edit'
+alias push='git push'
+alias delr='git push --delete origin'
+alias st='git status'
+alias up='git pull --no-edit --rebase origin develop'
+alias dev='git checkout develop && pull && st'
+alias rup='git remote prune origin'
+alias rbr='rup && br -r'
+alias rbm='rup && br -r --merged'
+
+# for tig
+alias tis='tig status'
+alias blame='tig blame'
