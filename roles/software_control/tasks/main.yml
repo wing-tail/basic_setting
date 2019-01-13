@@ -9,7 +9,7 @@
   shell: apt install -y language-pack-ja screen tig ruby ruby-dev libffi-dev python-pip
 - name: software install by pip
   become: true
-  shell: pip install cffi
+  shell: pip install cffi docker-compose
 - name: software install by gem
   become: true
   shell: gem install sass
