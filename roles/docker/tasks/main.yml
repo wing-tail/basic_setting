@@ -1,0 +1,22 @@
+- name: apt update
+  become: true
+  shell: apt update
+- name: premise software install by apt
+  become: true
+  shell: apt install -y apt-transport-https ca-certificates curl software-properties-common
+- name: get GPG key
+  get_url: url=https://download.docker.com/linux/ubuntu/gpg dest=/tmp/docker_gpg
+- name: set GPG key
+  become: true
+  shell: apt-key add /tmp/docker_gpg
+- name: clean up
+  file: path=/tmp/docker_gpg state=absent
+- name: get repository
+  become: true
+  shell: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+- name: apt update
+  become: true
+  shell: apt update
+- name: install docker
+  become: true
+  shell: apt install -y docker-ce
