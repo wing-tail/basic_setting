@@ -4,3 +4,5 @@
   file: src={{ ansible_env.PWD }}/files/my_extend dest=$HOME/.bash/my_extend state=link
 - name: add bash setting
   shell: cat {{ ansible_env.PWD }}/bash/.bash_extend >> $HOME/.bashrc
+- name: make docker directory
+  file: path=/mnt/docker state=directory
