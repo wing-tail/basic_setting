@@ -1,0 +1,14 @@
+- name: clean up
+  file: path=$HOME/redis-stable* state=absent
+- name: get redis
+  become: yes
+  get_url: url=http://download.redis.io/releases/redis-stable.tar.gz dest=/tmp/redis-stable.tar.gz
+- name: unzip
+  become: yes
+  unarchive: src=/tmp/redis-stable.tar.gz dest=/tmp remote_src=yes
+- name: software install by make
+  become: yes
+  make: chdir=/tmp/redis-stable target=install
+- name: cleaning
+  become: yes
+  file: path=/tmp/redis-stable* state=absent
