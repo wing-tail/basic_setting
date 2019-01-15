@@ -1,0 +1,3 @@
+- name: link wsl setting
+  become: yes
+  file: src={{ ansible_env.PWD }}/files/wsl.conf dest=/etc/wsl.conf state=link
