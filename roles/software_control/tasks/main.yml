@@ -3,7 +3,7 @@
   shell: apt update
 - name: apt upgrade
   become: true
-  shell: apt upgrade
+  shell: apt upgrade -y
 - name: software install by apt
   become: true
   shell: apt install -y language-pack-ja \

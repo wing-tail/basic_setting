@@ -1,3 +1,5 @@
+alias hig='history | grep'
+
 # for screen
 alias scs='screen -S'
 alias scr='screen -r'
