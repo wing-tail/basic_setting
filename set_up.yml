@@ -5,7 +5,9 @@
     - software_control
     - base_setting
     - ripgrep
+    - redis
     - git
     - bash
+    - wsl_config
     - vim
     - screen
