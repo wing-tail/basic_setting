@@ -1,0 +1,23 @@
+export PATH=$PATH:~/.config/composer/vendor/bin
+
+# ssh-agent
+SSH_AGENT_FILE="$HOME/.ssh/ssh_agent"
+[ -f $SSH_AGENT_FILE ] && source $SSH_AGENT_FILE >& /dev/null
+if ! ssh-add -l >& /dev/null ; then
+    ssh-agent > $SSH_AGENT_FILE
+    source $SSH_AGENT_FILE >& /dev/null
+    find $HOME/.ssh -name id_rsa | xargs ssh-add
+fi
+
+# run screen
+export SCREENDIR=$HOME/.screen
+
+if [[ -S "$SSH_AUTH_SOCK" && ! -h "$SSH_AUTH_SOCK" ]]; then
+    ln -sf "$SSH_AUTH_SOCK" ~/.ssh/ssh_auth_sock;
+fi
+
+export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock;
+
+if [ $SHLVL = 1 ];then
+  screen -xR
+fi

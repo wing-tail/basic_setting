@@ -5,3 +5,7 @@ fi
 if [ -f ~/.bash/my_extend/functions ]; then
     . ~/.bash/my_extend/functions
 fi
+
+if [ -f ~/.bash/my_extend/app ]; then
+    . ~/.bash/my_extend/app
+fi
