@@ -4,6 +4,8 @@
   get_url: url=https://sh.rustup.rs dest=$HOME/rustup.sh mode=777
 - name: install rust
   shell: $HOME/rustup.sh -y
+- name: update rust
+  shell: rustup update
 - name: clean up
   file: path=$HOME/rustup.sh state=absent
 - name: install ripgrep

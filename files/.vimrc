@@ -30,6 +30,7 @@ call dein#add('hokaccha/vim-html5validator')
 call dein#add('mattn/emmet-vim')
 call dein#add('AtsushiM/sass-compile.vim')
 call dein#add('zebult/auto-gtags.vim')
+call dein#add('fatih/vim-go')
 
 call dein#end()
 filetype plugin indent on
@@ -40,7 +41,7 @@ if dein#check_install()
 endif
 
 set encoding=utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileencodings=utf-8,euc-jp,sjis,iso-2022-jp
 set fileformats=unix,dos,mac
 set laststatus=2
 set statusline=%<%f\ %m\ %r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=\ (%v,%l)/%L%8P\
@@ -63,7 +64,7 @@ set pumheight=10
 set display=lastline
 nnoremap <Down> gj
 nnoremap <Up> gk
-imap <S-Tab> <esc>
+imap <silent> jj <esc>
 nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
 
 "検索設定
