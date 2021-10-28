@@ -14,7 +14,6 @@ call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/neosnippet')
 call dein#add('Shougo/neosnippet-snippets')
 
-
 "以下、プラグインを列挙
 "call dein#add('{github.com/以下のリポジトリ名}')
 call dein#add('itchyny/lightline.vim')
@@ -31,6 +30,13 @@ call dein#add('mattn/emmet-vim')
 call dein#add('AtsushiM/sass-compile.vim')
 call dein#add('zebult/auto-gtags.vim')
 call dein#add('fatih/vim-go')
+call dein#add('simeji/winresizer')
+call dein#add('jeffkreeftmeijer/vim-numbertoggle')
+call dein#add('tpope/vim-surround')
+call dein#add('bronson/vim-trailing-whitespace')
+call dein#add('tomtom/tcomment_vim')
+call dein#add('leafgarland/typescript-vim')
+call dein#add('peitalin/vim-jsx-typescript')
 
 call dein#end()
 filetype plugin indent on
@@ -83,6 +89,14 @@ set autoindent
 "タブ、空白、改行の可視化
 set list
 set listchars=tab:>-,trail:_,extends:>,precedes:<,nbsp:%
+
+augroup SyntaxSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript
+    autocmd FileType typescript setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd BufNewFile,BufRead *.{yaml,yml} setlocal filetype=yaml
+    autocmd FileType yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+augroup END
 
 "全角スペースをハイライト表示
 function! ZenkakuSpace()
